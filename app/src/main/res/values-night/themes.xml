@@ -13,4 +13,9 @@
         <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
     </style>
+
+    <style name="WeatherIconStyle">
+        <item name="android:tint">#E4EAF2</item>
+        <item name="android:drawableTint">#E4EAF2</item>
+    </style>
 </resources>
