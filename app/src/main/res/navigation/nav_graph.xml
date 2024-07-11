@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/weatherListFragment">
+
+    <fragment
+        android:id="@+id/weatherListFragment"
+        android:name="com.mobillium.interntasks2a.WeatherListFragment"
+        android:label="WeatherListFragment"
+        tools:layout="@layout/activity_list">
+        <action
+            android:id="@+id/action_weatherListFragment_to_weatherDetailFragment"
+            app:destination="@id/weatherDetailFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/weatherDetailFragment"
+        android:name="com.mobillium.interntasks2a.WeatherDetailFragment"
+        android:label="WeatherDetailFragment"
+        tools:layout="@layout/activity_detail">
+        <argument
+            android:name="weatherItem"
+            app:argType="com.mobillium.interntasks2a.WeatherItem" />
+    </fragment>
+
+    <action
+        android:id="@+id/action_listFragment_to_weatherDetailFragment"
+        app:destination="@id/weatherDetailFragment">
+        <argument
+            android:name="itemId"
+            app:argType="integer" />
+    </action>
+
+</navigation>
