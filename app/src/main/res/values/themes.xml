@@ -12,11 +12,13 @@
         <!-- Status bar color. -->
         <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
+        <item name="android:windowBackground">@color/light</item>
     </style>
 
     <style name="WeatherIconStyle">
         <item name="android:tint">@color/gray</item>
         <item name="android:drawableTint">@color/gray</item>
+        <item name="android:textColor">@color/gray</item>
     </style>
 
 </resources>

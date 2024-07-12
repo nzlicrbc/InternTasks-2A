@@ -17,5 +17,6 @@
     <style name="WeatherIconStyle">
         <item name="android:tint">@color/light</item>
         <item name="android:drawableTint">@color/light</item>
+        <item name="android:textColor">@color/light</item>
     </style>
 </resources>
