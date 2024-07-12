@@ -1,9 +1,9 @@
+package com.mobillium.interntasks2a
+
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.mobillium.interntasks2a.R
-import com.mobillium.interntasks2a.WeatherItem
 import com.mobillium.interntasks2a.databinding.ItemWeatherBinding
 
 class WeatherAdapter(

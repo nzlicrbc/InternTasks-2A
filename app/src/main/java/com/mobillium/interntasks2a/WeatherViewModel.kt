@@ -1,6 +1,5 @@
 package com.mobillium.interntasks2a
 
-
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 

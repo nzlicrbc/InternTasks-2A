@@ -1,9 +1,9 @@
+package com.mobillium.interntasks2a
+
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.mobillium.interntasks2a.R
-import com.mobillium.interntasks2a.WeatherItem
 
 class ListActivity : AppCompatActivity() {
 

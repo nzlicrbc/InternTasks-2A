@@ -1,6 +1,5 @@
 package com.mobillium.interntasks2a
 
-import WeatherAdapter
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
