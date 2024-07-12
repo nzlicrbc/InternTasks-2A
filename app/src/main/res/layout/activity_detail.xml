@@ -15,13 +15,13 @@
         android:layout_marginTop="@dimen/margin_medium"
         android:layout_marginBottom="@dimen/margin_medium"
         android:src="@drawable/refresh"
-        app:layout_constraintBottom_toTopOf="@id/textViewCity"
+        app:layout_constraintBottom_toTopOf="@id/textViewCityName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textViewCity"
+        android:id="@+id/textViewCityName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/margin_xlarge"
@@ -43,7 +43,7 @@
         android:textSize="@dimen/text_size_small"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/textViewCity" />
+        app:layout_constraintTop_toBottomOf="@id/textViewCityName" />
 
     <RelativeLayout
         android:layout_width="wrap_content"
@@ -136,12 +136,12 @@
         android:layout_height="@dimen/margin_large"
         android:src="@drawable/ic_sunny"
         app:layout_constraintBottom_toBottomOf="@id/textViewDay1"
-        app:layout_constraintEnd_toStartOf="@id/textViewTempDay1"
+        app:layout_constraintEnd_toStartOf="@id/textViewTemperatureRange"
         app:layout_constraintStart_toEndOf="@id/textViewDay1"
         app:layout_constraintTop_toTopOf="@id/textViewDay1" />
 
     <TextView
-        android:id="@+id/textViewTempDay1"
+        android:id="@+id/textViewTemperatureRange"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="@dimen/margin_large"
@@ -179,7 +179,7 @@
         app:layout_constraintTop_toTopOf="@id/textViewDay2" />
 
     <TextView
-        android:id="@+id/textViewTempDay2"
+        android:id="@+id/textViewTemperatureRange2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="@dimen/margin_large"
@@ -216,7 +216,7 @@
         app:layout_constraintTop_toTopOf="@id/textViewDay3" />
 
     <TextView
-        android:id="@+id/textViewTempDay3"
+        android:id="@+id/textViewTemperatureRange3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="@dimen/margin_large"
@@ -253,7 +253,7 @@
         app:layout_constraintTop_toTopOf="@id/textViewDay4" />
 
     <TextView
-        android:id="@+id/textViewTempDay4"
+        android:id="@+id/textViewTemperatureRange4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="@dimen/margin_large"
@@ -275,7 +275,7 @@
         android:background="@drawable/button"
         android:text="@string/button_text"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@id/textViewTempDay4"
+        app:layout_constraintEnd_toEndOf="@id/textViewTemperatureRange4"
         app:layout_constraintStart_toStartOf="@id/textViewDay4" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

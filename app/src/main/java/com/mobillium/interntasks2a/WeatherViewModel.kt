@@ -9,11 +9,11 @@ class WeatherViewModel : ViewModel() {
     val weatherItems: MutableLiveData<List<WeatherItem>?> = _weatherItems
 
     fun updateTemperature(itemId: Int, newTemperature: String) {
-        val updatedList = _weatherItems.value?.map {
-            if (it.itemId == itemId) {
-                it.copy(temperature = newTemperature)
+        val updatedList = _weatherItems.value?.map { weatherItem ->
+            if (weatherItem.itemId == itemId) {
+                weatherItem.copy(temperature = newTemperature)
             } else {
-                it
+                weatherItem
             }
         }
         _weatherItems.value = updatedList

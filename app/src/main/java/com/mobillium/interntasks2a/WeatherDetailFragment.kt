@@ -16,6 +16,7 @@ import kotlin.random.Random
 class WeatherDetailFragment : Fragment() {
 
     private lateinit var temperatureTextView: TextView
+    private lateinit var cityNameTextView: TextView
     private var currentTemperature: String = ""
     private var itemId: Int = -1
     private val args: WeatherDetailFragmentArgs by navArgs()
@@ -30,6 +31,7 @@ class WeatherDetailFragment : Fragment() {
         temperatureTextView = view.findViewById(R.id.textViewTemperature)
         val refreshIcon = view.findViewById<ImageView>(R.id.imageViewRefreshIcon)
         val updateButton = view.findViewById<Button>(R.id.buttonUpdateData)
+        cityNameTextView = view.findViewById(R.id.textViewCityName)
 
         val weatherItem = args.weatherItem
 
@@ -37,6 +39,7 @@ class WeatherDetailFragment : Fragment() {
             currentTemperature = weatherItem.temperature
             itemId = weatherItem.itemId
             temperatureTextView.text = currentTemperature
+            cityNameTextView.text = weatherItem.cityName
         }
 
         refreshIcon.setOnClickListener {

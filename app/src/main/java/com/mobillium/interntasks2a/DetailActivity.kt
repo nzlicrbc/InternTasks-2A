@@ -1,25 +1,25 @@
 package com.mobillium.interntasks2a
 
 import android.os.Bundle
-import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import com.mobillium.interntasks2a.databinding.ActivityDetailBinding
 
 class DetailActivity : AppCompatActivity() {
 
+    private lateinit var binding: ActivityDetailBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_detail)
+        binding = ActivityDetailBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         val weatherItem = intent.getParcelableExtra<WeatherItem>("weatherItem")
 
         if (weatherItem != null) {
-
-            findViewById<TextView>(R.id.textViewTemperature).text = weatherItem.temperature
-            findViewById<TextView>(R.id.textViewTemperatureRange).text =
-                weatherItem.temperatureRange
-            findViewById<TextView>(R.id.textViewCityName).text = weatherItem.cityName
-            findViewById<TextView>(R.id.textViewWeatherDescription).text =
-                weatherItem.weatherDescription
+            binding.textViewTemperature.text = weatherItem.temperature
+            binding.textViewTemperatureRange.text = weatherItem.temperatureRange
+            binding.textViewCityName.text = weatherItem.cityName
+            binding.textViewWeatherDescription.text = weatherItem.weatherDescription
         }
     }
 }
