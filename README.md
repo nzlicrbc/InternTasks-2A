@@ -35,14 +35,12 @@ Aşağıdaki UI tasarımları verilen ekranları ConstraintLayout ve ilgili View
 - [Get results using the Fragment Result API](https://developer.android.com/guide/fragments/communicate#fragment-result)
 
 ## UI Tasarım
-
 | List            | Detail                                                               |
 | ----------------- | ------------------------------------------------------------------ |
 | <img src="./img/Light-List.png" width="50%" height="50%">  | <img src="./img/Light-Detail.png" width="50%" height="50%"> |
 
 
-### UI Elements 
-
+### UI Elements
 Tasarlarken dikkat edeceğin ölçülerin çoğunu bir önceki task'tan alabilirsin. Yeni eklenen boyutlar yukarıdaki görsellerde mevcut. Ayrıca tasarımdaki yeni icon'ları [/icons](./icons) altında bulabilirsin.
 
 
