@@ -12,5 +12,6 @@
     <dimen name="margin_large">24dp</dimen>
     <dimen name="margin_xlarge">32dp</dimen>
     <dimen name="margin_xxlarge">64dp</dimen>
+    <dimen name="margin_zero">0dp</dimen>
 
 </resources>

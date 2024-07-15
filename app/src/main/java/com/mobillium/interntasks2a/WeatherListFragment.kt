@@ -5,45 +5,63 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.setFragmentResultListener
+import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.mobillium.interntasks2a.databinding.ActivityListBinding
+import androidx.recyclerview.widget.RecyclerView
 
 class WeatherListFragment : Fragment() {
 
-    private var _binding: ActivityListBinding? = null
-    private val binding get() = _binding!!
+    private lateinit var recyclerView: RecyclerView
     private lateinit var weatherAdapter: WeatherAdapter
-    private var weatherData: MutableList<WeatherItem> = mutableListOf()
+    private val viewModel: WeatherViewModel by activityViewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        _binding = ActivityListBinding.inflate(inflater, container, false)
-        return binding.root
+        val view = inflater.inflate(R.layout.activity_list, container, false)
+
+        recyclerView = view.findViewById(R.id.recyclerViewWeather)
+        weatherAdapter = WeatherAdapter(
+            viewModel.weatherItems.value ?: emptyList(),
+            requireContext()
+        ) { weatherItem ->
+            val action =
+                WeatherListFragmentDirections.actionWeatherListFragmentToWeatherDetailFragment(
+                    weatherItem
+                )
+            findNavController().navigate(action)
+        }
+
+        recyclerView.adapter = weatherAdapter
+        recyclerView.layoutManager = LinearLayoutManager(requireContext())
+
+        return view
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        weatherData.addAll(WeatherConstants.DEFAULT_WEATHER_DATA)
-
-        binding.recyclerViewWeather.apply {
-            adapter = weatherAdapter
-            layoutManager = LinearLayoutManager(view.context)
-        }
-
-        setFragmentResultListener("requestKey") { _, bundle ->
-            val updatedTemperature = bundle.getString("updatedTemperature")
-            val itemId = bundle.getInt("itemId")
-            val indexToUpdate = weatherData.indexOfFirst { weatherItem -> weatherItem.itemId == itemId }
-            if (indexToUpdate != -1 && updatedTemperature != null) {
-                weatherData[indexToUpdate] =
-                    weatherData[indexToUpdate].copy(temperature = updatedTemperature)
-                weatherAdapter.notifyItemChanged(indexToUpdate)
+        viewModel.weatherItems.observe(viewLifecycleOwner) { updatedWeatherItems ->
+            if (updatedWeatherItems != null) {
+                weatherAdapter.updateData(updatedWeatherItems)
             }
         }
+
+        if (viewModel.weatherItems.value.isNullOrEmpty()) {
+            viewModel.weatherItems.value = getWeatherData()
+        }
+    }
+
+
+    private fun getWeatherData(): List<WeatherItem> {
+        var itemIdCounter = 0
+        return listOf(
+            WeatherItem("26°C", "14°C - 27°C", "İstanbul", "Güneşli", "sunny", itemIdCounter++),
+            WeatherItem("26°C", "14°C - 27°C", "Ankara", "Güneşli", "sunny", itemIdCounter++),
+            WeatherItem("26°C", "14°C - 27°C", "Erzurum", "Güneşli", "sunny", itemIdCounter++),
+            WeatherItem("26°C", "14°C - 27°C", "Sakarya", "Güneşli", "sunny", itemIdCounter++),
+        )
     }
 }
