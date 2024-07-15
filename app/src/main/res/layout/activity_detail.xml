@@ -18,7 +18,7 @@
         app:layout_constraintBottom_toTopOf="@id/textViewCityName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"/>
 
     <TextView
         android:id="@+id/textViewCityName"
@@ -265,10 +265,9 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@id/textViewDay4" />
 
-
     <Button
         android:id="@+id/buttonUpdateData"
-        android:layout_width="@dimen/margin_zero"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="@dimen/margin_xlarge"
         style="@style/WeatherIconStyle"
@@ -276,6 +275,6 @@
         android:text="@string/button_text"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@id/textViewTemperatureRange4"
-        app:layout_constraintStart_toStartOf="@id/textViewDay4" />
+        app:layout_constraintStart_toStartOf="@id/textViewDay4"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -4,56 +4,55 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import android.widget.ImageView
-import android.widget.TextView
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.activityViewModels
+import androidx.fragment.app.setFragmentResult
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
+import com.mobillium.interntasks2a.databinding.ActivityDetailBinding
 import kotlin.random.Random
 
 class WeatherDetailFragment : Fragment() {
 
-    private lateinit var temperatureTextView: TextView
-    private lateinit var cityNameTextView: TextView
+    private var _binding: ActivityDetailBinding? = null
+    private val binding get() = _binding!!
     private var currentTemperature: String = ""
     private var itemId: Int = -1
     private val args: WeatherDetailFragmentArgs by navArgs()
-    private val viewModel: WeatherViewModel by activityViewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val view = inflater.inflate(R.layout.activity_detail, container, false)
+        _binding = ActivityDetailBinding.inflate(inflater, container, false)
+        return binding.root
+    }
 
-        temperatureTextView = view.findViewById(R.id.textViewTemperature)
-        val refreshIcon = view.findViewById<ImageView>(R.id.imageViewRefreshIcon)
-        val updateButton = view.findViewById<Button>(R.id.buttonUpdateData)
-        cityNameTextView = view.findViewById(R.id.textViewCityName)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
 
         val weatherItem = args.weatherItem
 
         if (weatherItem != null) {
             currentTemperature = weatherItem.temperature
             itemId = weatherItem.itemId
-            temperatureTextView.text = currentTemperature
-            cityNameTextView.text = weatherItem.cityName
+            binding.textViewTemperature.text = currentTemperature
+            binding.textViewTemperatureRange.text = weatherItem.temperatureRange
+            binding.textViewCityName.text = weatherItem.cityName
+            binding.textViewWeatherDescription.text = weatherItem.weatherDescription
         }
 
-        refreshIcon.setOnClickListener {
+        binding.imageViewRefreshIcon.setOnClickListener {
             generateRandomTemperature()
-
-            viewModel.updateTemperature(itemId, currentTemperature)
+            binding.textViewTemperature.text = currentTemperature
         }
 
-        updateButton.setOnClickListener {
-            viewModel.updateTemperature(itemId, currentTemperature)
+        binding.buttonUpdateData.setOnClickListener {
+            setFragmentResult("requestKey", Bundle().apply{
+                putString("updatedTemperature", currentTemperature)
+                putInt("itemId", itemId)
+            })
             findNavController().popBackStack()
         }
-
-        return view
     }
 
     private fun generateRandomTemperature() {
@@ -61,6 +60,11 @@ class WeatherDetailFragment : Fragment() {
         val maxTemp = 27
         val randomTemperature = Random.nextInt(minTemp, maxTemp + 1)
         currentTemperature = "$randomTemperature°C"
-        temperatureTextView.text = currentTemperature
+        binding.textViewTemperature.text = currentTemperature
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 }
