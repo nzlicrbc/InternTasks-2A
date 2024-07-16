@@ -4,7 +4,7 @@ import android.os.Parcel
 import android.os.Parcelable
 
 data class WeatherItem(
-    var temperature: String,
+    val temperature: String,
     val temperatureRange: String,
     val cityName: String,
     val weatherDescription: String,

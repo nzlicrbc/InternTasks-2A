@@ -1,26 +1,32 @@
 package com.mobillium.interntasks2a
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
+import com.mobillium.interntasks2a.databinding.ActivityListBinding
 
 class ListActivity : AppCompatActivity() {
 
+    private lateinit var binding: ActivityListBinding
+    private lateinit var weatherAdapter: WeatherAdapter
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_list)
+        binding = ActivityListBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
-        val weatherData = listOf(
-            WeatherItem("26°C", "14°C - 27°C", "İstanbul", "Güneşli", "sunny"),
-            WeatherItem("26°C", "14°C - 27°C", "Ankara", "Güneşli", "sunny"),
-            WeatherItem("26°C", "14°C - 27°C", "Erzurum", "Güneşli", "sunny"),
-            WeatherItem("26°C", "14°C - 27°C", "Sakarya", "Güneşli", "sunny"),
-        )
-
-        val recyclerView: RecyclerView = findViewById(R.id.recyclerViewWeather)
-        recyclerView.adapter = WeatherAdapter(weatherData, this) { weatherItem ->
+        weatherAdapter = WeatherAdapter(WeatherConstants.DEFAULT_WEATHER_DATA) { weatherItem ->
+            val intent = Intent(this@ListActivity, DetailActivity::class.java)
+            intent.putExtra(WeatherConstants.EXTRA_WEATHER_ITEM, weatherItem)
+            startActivity(intent)
         }
-        recyclerView.layoutManager = LinearLayoutManager(this)
+
+        binding.recyclerViewWeather.apply{
+            adapter = weatherAdapter
+            layoutManager = LinearLayoutManager(this@ListActivity)
+
+        }
     }
 }
+

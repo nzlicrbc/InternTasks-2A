@@ -1,14 +1,13 @@
 package com.mobillium.interntasks2a
 
-import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.mobillium.interntasks2a.databinding.ItemWeatherBinding
 
 class WeatherAdapter(
+
     private var weatherData: List<WeatherItem>,
-    private val context: Context,
     private val onItemClickListener: (WeatherItem) -> Unit
 ) : RecyclerView.Adapter<WeatherAdapter.WeatherViewHolder>() {
 
@@ -28,16 +27,17 @@ class WeatherAdapter(
             textViewWeatherDescription.text = currentItem.weatherDescription
 
             val iconResource = when (currentItem.weatherCondition) {
-                "sunny" -> R.drawable.ic_sunny
-                "cloudy" -> R.drawable.ic_cloudy
-                "rainy" -> R.drawable.ic_rainy
-                "snowy" -> R.drawable.ic_snowy
+                WeatherConstants.WEATHER_SUNNY -> R.drawable.ic_sunny
+                WeatherConstants.WEATHER_CLOUDY -> R.drawable.ic_cloudy
+                WeatherConstants.WEATHER_RAINY -> R.drawable.ic_rainy
+                WeatherConstants.WEATHER_SNOWY -> R.drawable.ic_snowy
                 else -> R.drawable.ic_wind
             }
+
             imageViewWeatherIcon.setImageResource(iconResource)
 
             root.setOnClickListener {
-                onItemClickListener.invoke(weatherData[position])
+                onItemClickListener.invoke(currentItem)
             }
         }
     }

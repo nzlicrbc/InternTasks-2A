@@ -13,7 +13,7 @@ class DetailActivity : AppCompatActivity() {
         binding = ActivityDetailBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val weatherItem = intent.getParcelableExtra<WeatherItem>("weatherItem")
+        val weatherItem = intent.getParcelableExtra<WeatherItem>(WeatherConstants.EXTRA_WEATHER_ITEM)
 
         if (weatherItem != null) {
             binding.textViewTemperature.text = weatherItem.temperature
@@ -23,3 +23,4 @@ class DetailActivity : AppCompatActivity() {
         }
     }
 }
+
