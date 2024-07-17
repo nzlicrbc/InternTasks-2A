@@ -13,4 +13,6 @@
     <string name="wind_speed">3 km/s</string>
     <string name="date">01 Nisan 2023</string>
     <string name="button_text">Verileri Güncelle</string>
+    <string name="button_activity_text">Activity-Activity</string>
+    <string name="button_fragment_text">Fragment-Fragment</string>
 </resources>

@@ -43,9 +43,4 @@ class WeatherAdapter(
     }
 
     override fun getItemCount(): Int = weatherData.size
-
-    fun updateData(newWeatherItems: List<WeatherItem>) {
-        this.weatherData = newWeatherItems
-        notifyDataSetChanged()
-    }
 }

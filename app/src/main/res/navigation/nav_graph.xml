@@ -25,12 +25,4 @@
             app:argType="com.mobillium.interntasks2a.WeatherItem" />
     </fragment>
 
-    <action
-        android:id="@+id/action_listFragment_to_weatherDetailFragment"
-        app:destination="@id/weatherDetailFragment">
-        <argument
-            android:name="itemId"
-            app:argType="integer" />
-    </action>
-
 </navigation>

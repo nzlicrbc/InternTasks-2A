@@ -4,12 +4,12 @@ import android.os.Parcel
 import android.os.Parcelable
 
 data class WeatherItem(
-    val temperature: String,
+    var temperature: String,
     val temperatureRange: String,
     val cityName: String,
     val weatherDescription: String,
     val weatherCondition: String,
-    val itemId: Int = -1
+    val itemId: Int = -1,
 ) : Parcelable {
 
     constructor(parcel: Parcel) : this(

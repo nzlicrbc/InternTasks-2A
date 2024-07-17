@@ -32,14 +32,12 @@ class WeatherDetailFragment : Fragment() {
 
         val weatherItem = args.weatherItem
 
-        if (weatherItem != null) {
-            currentTemperature = weatherItem.temperature
-            itemId = weatherItem.itemId
-            binding.textViewTemperature.text = currentTemperature
-            binding.textViewTemperatureRange.text = weatherItem.temperatureRange
-            binding.textViewCityName.text = weatherItem.cityName
-            binding.textViewWeatherDescription.text = weatherItem.weatherDescription
-        }
+        currentTemperature = weatherItem.temperature
+        itemId = weatherItem.itemId
+        binding.textViewTemperature.text = currentTemperature
+        binding.textViewTemperatureRange.text = weatherItem.temperatureRange
+        binding.textViewCityName.text = weatherItem.cityName
+        binding.textViewWeatherDescription.text = weatherItem.weatherDescription
 
         binding.imageViewRefreshIcon.setOnClickListener {
             generateRandomTemperature()

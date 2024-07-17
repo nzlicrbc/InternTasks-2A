@@ -25,7 +25,6 @@ class ListActivity : AppCompatActivity() {
         binding.recyclerViewWeather.apply{
             adapter = weatherAdapter
             layoutManager = LinearLayoutManager(this@ListActivity)
-
         }
     }
 }

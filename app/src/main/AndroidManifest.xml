@@ -13,18 +13,21 @@
         android:theme="@style/Theme.InternTasks2A"
         tools:targetApi="31" >
 
-        <activity android:name=".NavigationActivity"
+        <activity android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".DetailActivity"
-            android:exported="true">
-        </activity>
+
         <activity android:name=".ListActivity"
-            android:exported="true">
-        </activity>
+            android:exported="false" />
+
+        <activity android:name=".DetailActivity"
+            android:exported="false" />
+
+        <activity android:name=".NavigationActivity"
+            android:exported="false" />
     </application>
 </manifest>
