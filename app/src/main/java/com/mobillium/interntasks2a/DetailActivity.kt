@@ -13,13 +13,16 @@ class DetailActivity : AppCompatActivity() {
         binding = ActivityDetailBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val weatherItem = intent.getParcelableExtra<WeatherItem>(WeatherConstants.EXTRA_WEATHER_ITEM)
+        val weatherItem =
+            intent.getParcelableExtra<WeatherItem>(WeatherConstants.EXTRA_WEATHER_ITEM)
 
-        if (weatherItem != null) {
-            binding.textViewTemperature.text = weatherItem.temperature
-            binding.textViewTemperatureRange.text = weatherItem.temperatureRange
-            binding.textViewCityName.text = weatherItem.cityName
-            binding.textViewWeatherDescription.text = weatherItem.weatherDescription
+        weatherItem?.let {
+            with(binding) {
+                textViewTemperature.text = it.temperature
+                textViewTemperatureRange.text = it.temperatureRange
+                textViewCityName.text = it.cityName
+                textViewWeatherDescription.text = it.weatherDescription
+            }
         }
     }
 }

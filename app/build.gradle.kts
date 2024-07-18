@@ -1,9 +1,8 @@
-@file:Suppress("DEPRECATION")
-
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
-    id("androidx.navigation.safeargs.kotlin") version "2.5.3" // Use the latest version
+    id("androidx.navigation.safeargs.kotlin")
+    id ("kotlin-parcelize")
 }
 
 android {
@@ -46,8 +45,8 @@ android {
 
 dependencies {
 
-    implementation(libs.androidx.navigation.fragment.ktx.v275)
-    implementation(libs.androidx.navigation.ui.ktx.v275)
+    implementation(libs.androidx.navigation.fragment.ktx)
+    implementation(libs.androidx.navigation.ui.ktx)
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)

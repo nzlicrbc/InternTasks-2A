@@ -7,13 +7,15 @@ junitVersion = "1.1.5"
 espressoCore = "3.5.1"
 appcompat = "1.6.1"
 material = "1.10.0"
-navigationFragmentKtxVersion = "2.7.5"
-navigationUiKtxVersion = "2.7.5"
+navigationFragmentKtx = "2.7.5"
+navigationUiKtx = "2.7.5"
+
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
-androidx-navigation-fragment-ktx-v275 = { module = "androidx.navigation:navigation-fragment-ktx", version.ref = "navigationFragmentKtxVersion" }
-androidx-navigation-ui-ktx-v275 = { module = "androidx.navigation:navigation-ui-ktx", version.ref = "navigationUiKtxVersion" }
+androidx-navigation-fragment-ktx = { module = "androidx.navigation:navigation-fragment-ktx", version.ref = "navigationFragmentKtx" }
+androidx-navigation-ui-ktx = { module = "androidx.navigation:navigation-ui-ktx", version.ref = "navigationUiKtx" }
+androidx-navigation-safe-args-gradle-plugin = { module = "androidx.navigation:navigation-safe-args-gradle-plugin", version.ref = "navigationFragmentKtx" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }
 androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
 androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }

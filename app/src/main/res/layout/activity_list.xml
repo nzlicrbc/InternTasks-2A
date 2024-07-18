@@ -9,10 +9,10 @@
 
     <TextView
         android:id="@+id/textViewDate"
+        style="@style/WeatherIconStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/margin_medium"
-        style="@style/WeatherIconStyle"
         android:fontFamily="sans-serif-medium"
         android:text="@string/date"
         android:textSize="@dimen/text_size_large"
@@ -22,10 +22,10 @@
 
     <TextView
         android:id="@+id/textViewTodayLabel"
+        style="@style/WeatherIconStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="sans-serif"
-        style="@style/WeatherIconStyle"
         android:text="@string/day"
         android:textSize="@dimen/text_size_medium"
         app:layout_constraintEnd_toEndOf="parent"
@@ -35,8 +35,9 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerViewWeather"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/margin_zero"
+        android:layout_height="0dp"
         android:padding="@dimen/margin_medium"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

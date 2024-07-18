@@ -17,7 +17,7 @@ class WeatherListFragment : Fragment() {
     private lateinit var weatherAdapter: WeatherAdapter
     private var weatherData: MutableList<WeatherItem> = mutableListOf()
 
-    override fun onCreate (savedInstanceState: Bundle?) {
+    override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         weatherData.addAll(WeatherConstants.DEFAULT_WEATHER_DATA)
     }
@@ -34,7 +34,10 @@ class WeatherListFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         weatherAdapter = WeatherAdapter(weatherData) { weatherItem ->
-            val action = WeatherListFragmentDirections.actionWeatherListFragmentToWeatherDetailFragment(weatherItem)
+            val action =
+                WeatherListFragmentDirections.actionWeatherListFragmentToWeatherDetailFragment(
+                    weatherItem
+                )
             findNavController().navigate(action)
         }
 
@@ -46,7 +49,8 @@ class WeatherListFragment : Fragment() {
         setFragmentResultListener(WeatherConstants.REQUEST_KEY) { _, bundle ->
             val updatedTemperature = bundle.getString(WeatherConstants.UPDATED_TEMPERATURE_KEY)
             val itemId = bundle.getInt(WeatherConstants.ITEM_ID_KEY)
-            val indexToUpdate = weatherData.indexOfFirst { weatherItem -> weatherItem.itemId == itemId }
+            val indexToUpdate =
+                weatherData.indexOfFirst { weatherItem -> weatherItem.itemId == itemId }
             if (indexToUpdate != -1 && updatedTemperature != null) {
                 weatherData[indexToUpdate] =
                     weatherData[indexToUpdate].copy(temperature = updatedTemperature)

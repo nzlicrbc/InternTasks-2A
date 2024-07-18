@@ -22,10 +22,7 @@ class ListActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
-        binding.recyclerViewWeather.apply{
-            adapter = weatherAdapter
-            layoutManager = LinearLayoutManager(this@ListActivity)
-        }
+        binding.recyclerViewWeather.adapter = weatherAdapter
     }
 }
 

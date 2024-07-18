@@ -26,15 +26,17 @@ class WeatherAdapter(
             textViewCityName.text = currentItem.cityName
             textViewWeatherDescription.text = currentItem.weatherDescription
 
-            val iconResource = when (currentItem.weatherCondition) {
-                WeatherConstants.WEATHER_SUNNY -> R.drawable.ic_sunny
-                WeatherConstants.WEATHER_CLOUDY -> R.drawable.ic_cloudy
-                WeatherConstants.WEATHER_RAINY -> R.drawable.ic_rainy
-                WeatherConstants.WEATHER_SNOWY -> R.drawable.ic_snowy
-                else -> R.drawable.ic_wind
-            }
+            with(WeatherConstants) {
+                val iconResource = when (currentItem.weatherCondition) {
+                    WEATHER_SUNNY -> R.drawable.ic_sunny
+                    WEATHER_CLOUDY -> R.drawable.ic_cloudy
+                    WEATHER_RAINY -> R.drawable.ic_rainy
+                    WEATHER_SNOWY -> R.drawable.ic_snowy
+                    else -> R.drawable.ic_wind
+                }
 
-            imageViewWeatherIcon.setImageResource(iconResource)
+                imageViewWeatherIcon.setImageResource(iconResource)
+            }
 
             root.setOnClickListener {
                 onItemClickListener.invoke(currentItem)

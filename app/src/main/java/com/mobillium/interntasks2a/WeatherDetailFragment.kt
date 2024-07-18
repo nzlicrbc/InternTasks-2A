@@ -34,17 +34,20 @@ class WeatherDetailFragment : Fragment() {
 
         currentTemperature = weatherItem.temperature
         itemId = weatherItem.itemId
-        binding.textViewTemperature.text = currentTemperature
-        binding.textViewTemperatureRange.text = weatherItem.temperatureRange
-        binding.textViewCityName.text = weatherItem.cityName
-        binding.textViewWeatherDescription.text = weatherItem.weatherDescription
+
+        with(binding) {
+            textViewTemperature.text = currentTemperature
+            textViewTemperatureRange.text = weatherItem.temperatureRange
+            textViewCityName.text = weatherItem.cityName
+            textViewWeatherDescription.text = weatherItem.weatherDescription
+        }
 
         binding.imageViewRefreshIcon.setOnClickListener {
             generateRandomTemperature()
         }
 
         binding.buttonUpdateData.setOnClickListener {
-            setFragmentResult(WeatherConstants.REQUEST_KEY, Bundle().apply{
+            setFragmentResult(WeatherConstants.REQUEST_KEY, Bundle().apply {
                 putString(WeatherConstants.UPDATED_TEMPERATURE_KEY, currentTemperature)
                 putInt(WeatherConstants.ITEM_ID_KEY, itemId)
             })
@@ -56,7 +59,7 @@ class WeatherDetailFragment : Fragment() {
         val minTemp = 14
         val maxTemp = 27
         val randomTemperature = Random.nextInt(minTemp, maxTemp + 1)
-        currentTemperature = "$randomTemperature°C"
+        currentTemperature = "$randomTemperature°"
         binding.textViewTemperature.text = currentTemperature
     }
 
