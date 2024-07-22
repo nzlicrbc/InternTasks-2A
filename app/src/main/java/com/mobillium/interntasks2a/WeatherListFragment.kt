@@ -11,7 +11,6 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.mobillium.interntasks2a.databinding.ActivityListBinding
 
 class WeatherListFragment : Fragment() {
-
     private var _binding: ActivityListBinding? = null
     private val binding get() = _binding!!
     private lateinit var weatherAdapter: WeatherAdapter

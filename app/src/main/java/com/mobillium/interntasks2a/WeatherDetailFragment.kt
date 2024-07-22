@@ -12,7 +12,6 @@ import com.mobillium.interntasks2a.databinding.ActivityDetailBinding
 import kotlin.random.Random
 
 class WeatherDetailFragment : Fragment() {
-
     private var _binding: ActivityDetailBinding? = null
     private val binding get() = _binding!!
     private var currentTemperature: String = ""
@@ -40,18 +39,18 @@ class WeatherDetailFragment : Fragment() {
             textViewTemperatureRange.text = weatherItem.temperatureRange
             textViewCityName.text = weatherItem.cityName
             textViewWeatherDescription.text = weatherItem.weatherDescription
-        }
 
-        binding.imageViewRefreshIcon.setOnClickListener {
-            generateRandomTemperature()
-        }
+            imageViewRefreshIcon.setOnClickListener {
+                generateRandomTemperature()
+            }
 
-        binding.buttonUpdateData.setOnClickListener {
-            setFragmentResult(WeatherConstants.REQUEST_KEY, Bundle().apply {
-                putString(WeatherConstants.UPDATED_TEMPERATURE_KEY, currentTemperature)
-                putInt(WeatherConstants.ITEM_ID_KEY, itemId)
-            })
-            findNavController().popBackStack()
+            buttonUpdateData.setOnClickListener {
+                setFragmentResult(WeatherConstants.REQUEST_KEY, Bundle().apply {
+                    putString(WeatherConstants.UPDATED_TEMPERATURE_KEY, currentTemperature)
+                    putInt(WeatherConstants.ITEM_ID_KEY, itemId)
+                })
+                findNavController().popBackStack()
+            }
         }
     }
 

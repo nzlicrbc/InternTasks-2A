@@ -7,7 +7,6 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.mobillium.interntasks2a.databinding.ActivityListBinding
 
 class ListActivity : AppCompatActivity() {
-
     private lateinit var binding: ActivityListBinding
     private lateinit var weatherAdapter: WeatherAdapter
 

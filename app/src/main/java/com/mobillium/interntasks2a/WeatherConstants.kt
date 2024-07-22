@@ -17,39 +17,6 @@ object WeatherConstants {
     const val UPDATED_TEMPERATURE_KEY = "updatedTemperature"
     const val ITEM_ID_KEY = "itemId"
 
-    // Default Weather Data (Consider moving this to a data source or API)
-    val DEFAULT_WEATHER_DATA = listOf(
-        WeatherItem(
-            temperature = "26°C",
-            temperatureRange = "14° - 27°",
-            cityName = "İstanbul",
-            weatherDescription = "Güneşli",
-            weatherCondition = WEATHER_SUNNY,
-            itemId = 0
-        ),
-        WeatherItem(
-            temperature = "26°C",
-            temperatureRange = "14° - 27°",
-            cityName = "Ankara",
-            weatherDescription = "Güneşli",
-            weatherCondition = WEATHER_SUNNY,
-            itemId = 1
-        ),
-        WeatherItem(
-            temperature = "26°C",
-            temperatureRange = "14° - 27°",
-            cityName = "Erzurum",
-            weatherDescription = "Güneşli",
-            weatherCondition = WEATHER_SUNNY,
-            itemId = 2
-        ),
-        WeatherItem(
-            temperature = "26°C",
-            temperatureRange = "14° - 27°",
-            cityName = "Sakarya",
-            weatherDescription = "Güneşli",
-            weatherCondition = WEATHER_SUNNY,
-            itemId = 3
-        )
-    )
+    // Default Weather Data
+    val DEFAULT_WEATHER_DATA: List<WeatherItem> = WeatherDataUtil.createDefaultWeatherData()
 }
