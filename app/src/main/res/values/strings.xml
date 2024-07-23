@@ -1,3 +1,18 @@
 <resources>
     <string name="app_name">InternTasks2A</string>
+    <string name="temperature_range">14° - 27°</string>
+    <string name="date4">Cum, 05 Nisan</string>
+    <string name="date3">Per, 04 Nisan</string>
+    <string name="date2">Çarş, 03 Nisan</string>
+    <string name="date1">Sal, 02 Nisan</string>
+    <string name="city">İstanbul</string>
+    <string name="day">Bugün</string>
+    <string name="temperature">26°</string>
+    <string name="weather_description">Güneşli</string>
+    <string name="wind">Rüzgar</string>
+    <string name="wind_speed">3 km/s</string>
+    <string name="date">01 Nisan 2023</string>
+    <string name="button_text">Verileri Güncelle</string>
+    <string name="button_activity_text">Activity-Activity</string>
+    <string name="button_fragment_text">Fragment-Fragment</string>
 </resources>
